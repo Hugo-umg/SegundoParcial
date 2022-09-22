@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Estudiantes</title>
+</head>
+<body>
+    <h1>Formulario Estudiantes</h1>
+    <form action="/crud_e" method="post">
+        <input type="text" id="txt_id" name="txt_id" placeholder="0">
+        <input type="text" id="txt_carnet" name="txt_carnet" placeholder="Carnet">
+        <input type="text" id="txt_nombres" name="txt_nombres" placeholder="Nombres">
+        <input type="text" id="txt_apellidos" name="txt_apellidos" placeholder="Apellidos">
+        <input type="text" id="txt_direccion" name="txt_direccion" placeholder="Direccion">
+        <input type="text" id="txt_telefono" name="txt_telefono" placeholder="Telefono">
+        <label for="genero">Genero:</label>
+        <select id="txt_genero" name="txt_genero">
+            <option selected="Femenino" value="0">Femenino</option>
+            <option value="1">Masculino</option>
+        </select>
+        <input type="email" id="txt_email" name="txt_email" placeholder="Email">
+        <input type="date" id="txt_fechaNac" name="txt_fechaNac" placeholder="yyyy-MM-dd">
+        
+       <button type="submit" id="btn_crear" name="btn_crear" value="crear">Crear</button>
+       <button type="submit" id="btn_actualizar" name="btn_actualizar" value="actualizar">Actualizar</button>
+       <button type="submit" id="btn_borrar" name="btn_borrar" value="borrar">Borrar</button>
+    </form>
+    <table class="table" border="1px">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Carnet</th>
+                <th>Nombres</th>
+                <th>Apellidos</th>
+                <th>Direccion</th>
+                <th>Telefono</th>
+                <th>Genero</th>
+                <th>Email</th>
+                <th>Fecha Nacimiento</th>
+            </tr>
+        </thead>
+        <tbody>
+           <% resultado.forEach((estudiante) => { %>
+            <tr>
+                <td><%= estudiante.id_estudiante %></td>
+                <td><%= estudiante.carnet %></td>
+                <td><%= estudiante.nombres %></td>
+                <td><%= estudiante.apellidos %></td>
+                <td><%= estudiante.direccion %></td>
+                <td><%= estudiante.telefono %></td>
+                <td><%= estudiante.genero %></td>
+                <td><%= estudiante.email %></td>
+                <td><%= estudiante.fecha_nacimiento %></td>
+            </tr>
+            <% }) %>
+        </tbody>
+      </table>
+</body>
+</html>
